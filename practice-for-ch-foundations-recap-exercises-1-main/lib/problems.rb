@@ -135,6 +135,14 @@ end
 # "zebra".caesar_cipher(4)    #=> "difve"
 class String
   def caesar_cipher(num)
-    
+    alpha = ("a".."z").to_a
+    new_word = ""
+
+      self.each_char do |char|
+        old_idx = alpha.index(char)
+        new_idx = old_idx + num
+          new_word += alpha[new_idx % 26]
+      end
+    new_word
   end
 end
