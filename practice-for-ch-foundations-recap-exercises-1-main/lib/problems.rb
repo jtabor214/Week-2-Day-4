@@ -61,7 +61,7 @@ def find_bigrams(str, bigrams)
 
    result_array
 end
-#this is a test
+
 
 # Write a method, Hash#my_select, that takes in an optional proc argument
 # The method should return a new hash containing the key-value pairs that return
@@ -79,8 +79,19 @@ end
 # hash_2.my_select                            # => {4=>4}
 class Hash
   def my_select(&prc)
-    
+    new_hash = {}
+
+    prc ||= Proc.new {|k, v| k == v}
+
+    self.each do |k, v|
+      if prc.call(k, v) == true
+        new_hash[k] = v
+      end
+    end
+    new_hash
   end
+
+
 end
 
 
