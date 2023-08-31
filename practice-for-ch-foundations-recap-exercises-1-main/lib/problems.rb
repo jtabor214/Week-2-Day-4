@@ -105,7 +105,21 @@ end
 # "cats".substrings(2)  # => ["ca", "at", "ts"]
 class String
   def substrings(length = nil)
+    string_arr = []
     
+
+
+      (0...self.length).each do |start_i|
+        (start_i...self.length).each do |end_i|
+          sub_str = self[start_i..end_i]
+            if sub_str.length == length || length == nil
+           string_arr << sub_str
+            end
+        end
+      end
+
+      string_arr
+
   end
 end
 
