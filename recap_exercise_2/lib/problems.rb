@@ -17,7 +17,7 @@ hash = Hash.new(0)
         hash[pairs] += 1
     end
 
-    sorted = hash.sort_bye { |k, v| v } 
+    sorted = hash.sort_by { |k, v| v } 
     sorted[-1][0]
 
 
@@ -27,7 +27,7 @@ class Hash
   # Write a method, Hash#inverse, that returns a new hash where the key-value
   # pairs are swapped
   def inverse
-    
+    self.invert
   end
 end
 
