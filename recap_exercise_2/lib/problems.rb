@@ -36,7 +36,16 @@ class Array
   # Write a method, Array#pair_sum_count, that takes in a target number returns
   # the number of pairs of elements that sum to the given target
   def pair_sum_count(num)
+    count = 0
     
+      self.each_with_index do |n1, idx1|
+        self.each_with_index do |n2, idx2|
+          if idx2 >= idx1 && n1 + n2 == num
+            count += 1
+          end
+        end
+      end
+      count
   end
 
 
