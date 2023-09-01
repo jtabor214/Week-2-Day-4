@@ -10,9 +10,18 @@ end
 # Write a method, most_frequent_bigram, that takes in a string and returns the
 # two adjacent letters that appear the most in the string.
 def most_frequent_bigram(str)
-  
-end
+hash = Hash.new(0)
 
+    (0...str.length - 1).each do |idx|
+      pairs = str[idx..idx + 1]
+        hash[pairs] += 1
+    end
+
+    sorted = hash.sort_bye { |k, v| v } 
+    sorted[-1][0]
+
+
+end
 
 class Hash
   # Write a method, Hash#inverse, that returns a new hash where the key-value
